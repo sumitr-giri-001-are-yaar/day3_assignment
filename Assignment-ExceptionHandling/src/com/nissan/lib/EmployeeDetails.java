@@ -7,25 +7,23 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class EmployeeDetails {
- public static void userInput(){	
-	 Scanner scanner=new Scanner(System.in);
-	 System.out.println("enter customer name");
-     String name=scanner.nextLine();
-	 System.out.println("enter customer Age");
-   int age=scanner.nextInt();
-         while(age<=18 && age>=60)
-         {
-    	System.out.println("wrong input");
-               break;
-               }
-    while(!(age>=18 && age<=60)) 
-    	 {System.out.println("name:" + name +  "  age :"+ age );
-    	 break;
-    	 }
-    	 
-     
-     
+ public static void userInput(int age){	
+      try {
+            
+            // if Age is not satisfy to the question throw new Exception;
+                if(age >= 18 && age <= 60) ;
+                else throw new Exception("Please enter age between 18 to 60");
+        }
+        // print exception if occur
+        catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    private static void showDetails(String name , int age) {
+        System.out.println("*****************  Details *****************");
+        System.out.println("Hi : "+ name );
+        System.out.println("You are "+age+" Years old");
+    }
+}
 
-}
-}
 
